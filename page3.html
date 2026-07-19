@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Choose One ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+.cards{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.card{
+
+width:220px;
+
+padding:30px;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(15px);
+
+border-radius:20px;
+
+cursor:pointer;
+
+transition:.4s;
+
+color:white;
+
+box-shadow:0 0 20px rgba(255,255,255,.2);
+
+}
+
+.card:hover{
+
+transform:translateY(-12px) scale(1.05);
+
+box-shadow:0 0 35px #ff4d6d;
+
+}
+
+.card h2{
+
+font-family:"Great Vibes",cursive;
+
+font-size:40px;
+
+margin-bottom:15px;
+
+}
+
+.card p{
+
+font-size:16px;
+
+line-height:1.6;
+
+}
+
+.note{
+
+color:white;
+
+margin-top:40px;
+
+font-size:18px;
+
+opacity:.85;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background-hearts">
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+</div>
+
+<div class="container">
+
+<h1>One Choice...</h1>
+
+<p>
+Before we go any further...
+<br><br>
+Choose what your heart is most curious about.
+</p>
+
+<div class="cards">
+
+<div class="card" onclick="goNext()">
+
+<h2>🌹</h2>
+
+<h3>A Memory</h3>
+
+<p>
+Something that still makes me smile.
+</p>
+
+</div>
+
+<div class="card" onclick="goNext()">
+
+<h2>💌</h2>
+
+<h3>A Feeling</h3>
+
+<p>
+Something I've wanted to tell you.
+</p>
+
+</div>
+
+<div class="card" onclick="goNext()">
+
+<h2>❤️</h2>
+
+<h3>A Secret</h3>
+
+<p>
+Something I've been saving just for today.
+</p>
+
+</div>
+
+</div>
+
+<p class="note">
+(Psst... choose wisely. ❤️)
+</p>
+
+</div>
+
+<script>
+
+function goNext(){
+
+document.body.style.opacity="0";
+
+setTimeout(()=>{
+window.location="page4.html";
+},700);
+
+}
+
+</script>
+<audio id="bgMusic"  loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+</body>
+</html>

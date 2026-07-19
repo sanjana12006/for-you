@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Letter For You ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+overflow:auto;
+}
+
+.letter{
+
+max-width:850px;
+
+margin:60px auto;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+padding:50px;
+
+border-radius:25px;
+
+box-shadow:0 0 30px rgba(255,255,255,.25);
+
+}
+
+h1{
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+#typewriter{
+
+color:white;
+
+font-size:20px;
+
+line-height:2;
+
+white-space:pre-wrap;
+
+}
+
+#next{
+
+display:none;
+
+margin:50px auto 0;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background-hearts">
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+</div>
+
+<div class="letter">
+
+<h1>To My Favorite Person ❤️</h1>
+
+<p id="typewriter"></p>
+
+<div style="text-align:center;">
+
+<button id="next" onclick="window.location='page9.html'">
+One Last Surprise ❤️
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const text=`I don't really know where to begin because no matter how many words I write, they'll never be enough to tell you how grateful I am for you.
+
+Happy 200 Days, my bbg , my pari , my bacchi.
+
+It's funny how, just 200 days ago, I had no idea that one person could become such an important part of my life...
+
+Thank you for walking into my life when I needed someone the most.
+
+Thank you for making me feel heard.
+
+Thank you for making ordinary days feel brighter.
+
+Thank you for every conversation, every laugh, every little reassurance, and every moment that reminded me I wasn't alone.
+
+These 200 days have become some of the happiest memories of my life.
+
+Thank you for choosing me.
+
+Thank you for loving me.
+
+And most of all...
+
+Thank you for simply being you.
+
+I love you more than words could ever explain.
+
+
+❤️`;
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("typewriter").innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,25);
+
+}else{
+
+document.getElementById("next").style.display="inline-block";
+
+}
+
+}
+
+type();
+
+</script>
+<audio id="bgMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unlock It ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+#heart{
+    font-size:140px;
+    cursor:pointer;
+    user-select:none;
+    animation:beat 1s infinite;
+    transition:.3s;
+}
+
+#heart:hover{
+    transform:scale(1.15);
+}
+
+#msg{
+    color:white;
+    font-size:22px;
+    margin:30px 0;
+    min-height:70px;
+    line-height:1.7;
+}
+
+@keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.12);}
+}
+
+.unlock{
+    animation:pop .6s;
+}
+
+@keyframes pop{
+    from{transform:scale(.5);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background-hearts">
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+</div>
+
+<div class="container">
+
+<h1>One Last Lock...</h1>
+
+<p id="msg">
+
+Before I tell you my secret...
+
+You have to unlock my heart.
+
+Click it until it trusts you.
+ 
+like u earned minee❤️
+
+</p>
+
+<div id="heart">❤️</div>
+
+</div>
+
+<script>
+
+let clicks = 0;
+
+const messages = [
+
+"❤️ Hmm... not yet.",
+
+"💕 It's starting to open...",
+
+"💖 You're getting closer...",
+
+"🥹 I think it likes you...",
+
+"🌹 Almost there...",
+
+"✨ Just one more click...",
+
+"❤️ It's finally unlocked."
+
+];
+
+document.getElementById("heart").onclick=function(){
+
+clicks++;
+
+this.style.transform=`scale(${1+clicks*0.05})`;
+
+document.getElementById("msg").innerHTML=messages[clicks-1];
+
+if(clicks>=7){
+
+this.classList.add("unlock");
+
+setTimeout(()=>{
+
+window.location="page6.html";
+
+},1800);
+
+}
+
+}
+
+</script>
+<audio id="bgMusic"  loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+</body>
+
+</html>

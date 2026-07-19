@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Forever Us ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    overflow:hidden;
+}
+
+.final-card{
+    max-width:800px;
+    margin:auto;
+    padding:50px;
+    text-align:center;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+    box-shadow:0 0 35px rgba(255,255,255,.25);
+    animation:fadeIn 2s;
+}
+
+.quote{
+    color:white;
+    font-size:24px;
+    line-height:2;
+    margin:30px 0;
+}
+
+.final{
+    font-family:'Great Vibes',cursive;
+    color:white;
+    font-size:72px;
+    margin:30px 0;
+    animation:glow 2s infinite alternate;
+}
+
+button{
+    margin-top:20px;
+}
+
+.hidden{
+    display:none;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #fff,0 0 20px #ff4d6d;
+    }
+    to{
+        text-shadow:0 0 20px #fff,0 0 40px #ff4d6d,0 0 60px #ff4d6d;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="background-hearts">
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+</div>
+
+<div class="container">
+
+<div class="final-card" id="card">
+
+<h1>One Last Thing...</h1>
+
+<p class="quote">
+
+200 days may not seem like forever...
+
+But every single one of those days became special because they were spent with you.
+
+I know it wasnt perfect but still
+
+Thank you for every smile, every laugh, every late-night conversation, every silly moment, and every memory we've created together.
+
+Here's to the first 200 days...
+
+And to every beautiful day that comes next. ❤️
+
+</p>
+
+<button onclick="showEnding()">
+
+Click Me ❤️
+
+</button>
+
+</div>
+
+<div id="ending" class="hidden">
+
+<h1 class="final">
+
+I Love You ❤️
+
+</h1>
+
+<p class="quote">
+
+More than yesterday.
+
+Less than tomorrow.
+
+Forever and always.
+
+✨ Happy 200 Days, Baby gurll. ✨
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function showEnding(){
+
+document.getElementById("card").style.display="none";
+
+document.getElementById("ending").style.display="block";
+
+createHearts();
+
+}
+
+function createHearts(){
+
+for(let i=0;i<60;i++){
+
+let heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.style.position="fixed";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top="100vh";
+
+heart.style.fontSize=(20+Math.random()*25)+"px";
+
+heart.style.transition="all 5s linear";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.top="-10vh";
+
+heart.style.opacity="0";
+
+},100);
+
+}
+
+}
+
+</script>
+<audio id="bgMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+
+</body>
+</html>

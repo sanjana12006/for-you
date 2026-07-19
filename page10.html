@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:#090909;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+overflow:hidden;
+
+font-family:Poppins,sans-serif;
+
+}
+
+#text{
+
+width:80%;
+
+max-width:800px;
+
+text-align:center;
+
+color:white;
+
+font-size:28px;
+
+line-height:2;
+
+opacity:0;
+
+transition:2s;
+
+}
+
+h1{
+
+font-family:Great Vibes;
+
+font-size:85px;
+
+margin-bottom:40px;
+
+color:#ff6b9e;
+
+}
+
+#cursor{
+
+animation:blink .8s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="text">
+
+<h1>Wait...</h1>
+
+<p id="typing"></p>
+
+</div>
+
+<script>
+
+const message=`One last thing...
+
+Out of the 8 billion people in this world...
+
+Somehow...
+
+I found you and u found mehh.
+
+And if I had to live my life a thousand times...
+
+I'd still hope every version of me finds every version of you.
+
+Thank you...
+
+For being my favorite person.
+
+I know this isn't perfect but i tried..
+
+Happy 200 Days.
+
+I love you. ❤️`;
+
+setTimeout(()=>{
+
+document.getElementById("text").style.opacity=1;
+
+let i=0;
+
+function type(){
+
+if(i<message.length){
+
+document.getElementById("typing").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(type,40);
+
+}
+
+}
+
+type();
+
+},2000);
+
+</script>
+<audio id="bgMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+</body>
+</html>

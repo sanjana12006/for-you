@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>❤️ Surprise ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+overflow:hidden;
+}
+
+#content{
+opacity:0;
+transition:2s;
+}
+
+#countdown{
+font-size:90px;
+color:white;
+font-weight:bold;
+margin-top:30px;
+animation:pulse 1s infinite;
+}
+
+#loading{
+font-size:28px;
+color:white;
+margin-top:20px;
+}
+
+#reveal{
+display:none;
+animation:fadeIn 2s;
+}
+
+#reveal h1{
+font-size:85px;
+color:white;
+text-shadow:0 0 30px #ff2d55;
+margin-bottom:20px;
+}
+
+#reveal h2{
+font-family:"Great Vibes",cursive;
+font-size:60px;
+color:white;
+margin-bottom:25px;
+}
+
+#reveal p{
+font-size:22px;
+color:white;
+line-height:1.8;
+}
+
+#nextBtn{
+display:none;
+margin-top:40px;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.15);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background-hearts">
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+</div>
+
+<div class="container" id="content">
+
+<div id="intro">
+
+<h2 style="font-family:'Great Vibes',cursive;font-size:55px;color:white;">
+Loading something very special...
+</h2>
+
+<div id="countdown">3</div>
+
+</div>
+
+<div id="reveal">
+
+<h2>Guess What...</h2>
+
+<h1>❤️ HAPPY 200 DAYS ❤️</h1>
+
+<p>
+
+200 days...
+
+Filled with laughter.
+
+Filled with memories.
+
+Filled with little moments I'll treasure forever.
+
+And somehow...
+
+Every single day...
+
+I fell for you a little more.
+
+Thank you for making these 200 days the happiest chapter of my life.
+
+❤️
+
+</p>
+
+<button id="nextBtn" onclick="window.location='page8.html'">
+
+Read Something From My Heart 💌
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const content=document.getElementById("content");
+content.style.opacity="1";
+
+let number=3;
+
+const countdown=document.getElementById("countdown");
+
+const timer=setInterval(()=>{
+
+number--;
+
+if(number>0){
+
+countdown.innerHTML=number;
+
+}
+
+else{
+
+clearInterval(timer);
+
+document.getElementById("intro").style.display="none";
+
+document.getElementById("reveal").style.display="block";
+
+setTimeout(()=>{
+
+document.getElementById("nextBtn").style.display="inline-block";
+
+},2500);
+
+}
+
+},1200);
+
+</script>
+<audio id="bgMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+</body>
+</html>

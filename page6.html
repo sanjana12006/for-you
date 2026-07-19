@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Last Question ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+.buttons{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+}
+
+.choiceBtn{
+
+padding:18px 40px;
+
+border:none;
+
+border-radius:50px;
+
+background:#ff4d6d;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:0 0 20px rgba(255,77,109,.5);
+
+}
+
+.choiceBtn:hover{
+
+transform:scale(1.08);
+
+}
+
+#answer{
+
+display:none;
+
+margin-top:40px;
+
+color:white;
+
+font-size:22px;
+
+line-height:1.8;
+
+animation:fade 1s;
+
+}
+
+#nextBtn{
+
+display:none;
+
+margin-top:35px;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background-hearts">
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+</div>
+
+<div class="container">
+
+<h1>Just One More Question...</h1>
+
+<p style="color:white;font-size:24px;line-height:1.8;">
+
+Do you know what today is?
+
+</p>
+
+<div class="buttons">
+
+<button class="choiceBtn" onclick="reply('yes')">Yes ❤️</button>
+
+<button class="choiceBtn" onclick="reply('no')">No 🤍</button>
+
+</div>
+
+<div id="answer"></div>
+
+<button id="nextBtn" onclick="window.location='page7.html'">
+
+Find Out ❤️
+
+</button>
+
+</div>
+
+<script>
+
+function reply(choice){
+
+const answer=document.getElementById("answer");
+
+answer.style.display="block";
+
+document.getElementById("nextBtn").style.display="inline-block";
+
+if(choice==="yes"){
+
+answer.innerHTML=`
+Maybe you do... 😏
+<br><br>
+But let me tell the story my way.
+`;
+
+}
+
+else{
+
+answer.innerHTML=`
+That's okay...
+<br><br>
+I was hoping I'd be the one to tell you anyway. ❤️
+`;
+
+}
+
+}
+
+</script>
+<audio id="bgMusic"  loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+</body>
+
+</html>

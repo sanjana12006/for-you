@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Just One Question ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+#questionBox{
+animation:fade 1.2s;
+}
+
+.question{
+font-size:28px;
+color:white;
+margin-bottom:35px;
+line-height:1.6;
+}
+
+.options{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.choice{
+
+padding:18px 35px;
+
+background:rgba(255,255,255,.18);
+
+border:2px solid rgba(255,255,255,.3);
+
+border-radius:40px;
+
+color:white;
+
+cursor:pointer;
+
+transition:.35s;
+
+font-size:18px;
+
+}
+
+.choice:hover{
+
+background:#ff4d6d;
+
+transform:scale(1.05);
+
+}
+
+#result{
+
+display:none;
+
+color:white;
+
+font-size:22px;
+
+line-height:1.8;
+
+animation:fade 1s;
+
+margin-top:20px;
+
+}
+
+#next{
+
+display:none;
+
+margin-top:35px;
+
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background-hearts">
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+<span>❤</span>
+</div>
+
+<div class="container">
+
+<div id="questionBox">
+
+<h1>Just One Question...</h1>
+
+<p class="question">
+
+Where do you think my favorite place is?
+
+</p>
+
+<div class="options">
+
+<div class="choice" onclick="showAnswer()">🌊 The Beach</div>
+
+<div class="choice" onclick="showAnswer()">🏡 Home</div>
+
+<div class="choice" onclick="showAnswer()">🌍 Somewhere Far Away</div>
+
+<div class="choice" onclick="showAnswer()">❤️ I Don't Know</div>
+
+</div>
+
+</div>
+
+<div id="result">
+
+<h2 style="font-family:'Great Vibes',cursive;font-size:55px;margin-bottom:20px;">
+The Answer...
+</h2>
+
+<p>
+
+It's not a place on a map.
+
+It isn't a city.
+
+Or a country.
+
+Or even a building.
+
+My favorite place...
+
+Has always been...
+
+Wherever YOU(My Bbg) are. ❤️
+
+</p>
+
+<button id="next" onclick="window.location='page5.html'">
+
+Keep Going ❤️
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function showAnswer(){
+
+document.getElementById("questionBox").style.display="none";
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("next").style.display="inline-block";
+
+}
+
+</script>
+<audio id="bgMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+</body>
+</html>

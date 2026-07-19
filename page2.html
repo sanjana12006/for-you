@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Secret ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background-hearts">
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+</div>
+
+<div class="container">
+
+<h1>A Little Secret...</h1>
+
+<p id="text"></p>
+
+<button id="nextBtn" onclick="nextPage()" style="display:none;">
+Tell Me More ❤️
+</button>
+</div>
+
+<script>
+
+const message = `
+
+I've been keeping a little secret...
+
+Not because I had to...
+
+But because I wanted this moment to feel special.
+
+I wanted you to experience every word...
+
+Every little surprise...
+
+Exactly the way I imagined it.
+
+So...
+
+Keep going.
+
+I'm waiting for you at the end. ❤️
+
+`;
+
+let i = 0;
+
+function typeWriter(){
+
+if(i < message.length){
+
+document.getElementById("text").innerHTML += message.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,40);
+
+}
+
+else{
+
+document.getElementById("nextBtn").style.display="inline-block";
+
+}
+
+}
+
+typeWriter();
+function nextPage(){
+
+    const music = document.getElementById("bgMusic");
+
+    localStorage.setItem("musicTime", music.currentTime);
+
+    window.location.href = "page3.html";
+
+}
+</script>
+
+<audio id="bgMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+<script>
+const music = document.getElementById("bgMusic");
+
+// Get the last saved position
+const savedTime = localStorage.getItem("musicTime");
+
+if(savedTime){
+    music.currentTime = parseFloat(savedTime);
+}
+
+// Start playing
+music.play();
+
+// Save the position every second
+setInterval(() => {
+    localStorage.setItem("musicTime", music.currentTime);
+}, 1000);
+</script>
+</body>
+
+</html>
